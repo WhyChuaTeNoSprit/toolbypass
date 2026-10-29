@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>Vietnam Link Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div class="brand-mark" aria-hidden="true">↗</div>
+      <p class="eyebrow">CÔNG CỤ PHÂN TÍCH URL</p>
+      <h1>Vietnam Link Analyzer</h1>
+      <p class="subtitle">Kiểm tra cấu trúc liên kết, xem thông tin tên miền và phân tích chuỗi chuyển hướng bạn cung cấp.</p>
+    </header>
+
+    <section class="panel">
+      <label for="urlInput">Địa chỉ URL</label>
+      <textarea id="urlInput" rows="3" spellcheck="false" placeholder="https://example.com/path?ref=abc"></textarea>
+      <div class="actions">
+        <button id="analyzeBtn" class="primary">Phân tích URL</button>
+        <button id="clearBtn" class="secondary" type="button">Xóa</button>
+      </div>
+      <p class="hint">Mẹo: chỉ mở liên kết từ nguồn bạn tin tưởng. Công cụ này không tự truy cập website hay hoàn thành nhiệm vụ quảng cáo.</p>
+    </section>
+
+    <section id="resultPanel" class="panel results" hidden aria-live="polite">
+      <div class="section-heading">
+        <h2>Kết quả phân tích</h2>
+        <span id="statusPill" class="pill">Đã phân tích</span>
+      </div>
+      <div id="summary" class="summary"></div>
+      <div id="warnings" class="warnings"></div>
+      <div class="field">
+        <span>Tên miền</span><code id="hostValue"></code>
+      </div>
+      <div class="field">
+        <span>Giao thức</span><code id="protocolValue"></code>
+      </div>
+      <div class="field">
+        <span>Đường dẫn</span><code id="pathValue"></code>
+      </div>
+      <div class="field">
+        <span>Tham số truy vấn</span><code id="queryValue"></code>
+      </div>
+      <div class="field">
+        <span>URL chuẩn hóa</span><code id="normalizedValue"></code>
+      </div>
+      <button id="copyBtn" class="secondary full" type="button">Sao chép URL chuẩn hóa</button>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <h2>Chuỗi chuyển hướng thủ công</h2>
+          <p class="subtext">Dán các URL bạn đã quan sát được, mỗi dòng một địa chỉ.</p>
+        </div>
+      </div>
+      <label for="chainInput">Các bước chuyển hướng</label>
+      <textarea id="chainInput" rows="4" spellcheck="false" placeholder="https://short.example/abc&#10;https://example.org/next&#10;https://destination.example/page"></textarea>
+      <button id="chainBtn" class="primary" type="button">Kiểm tra chuỗi</button>
+      <ol id="chainResult" class="chain-result"></ol>
+    </section>
+
+    <footer>
+      <p>Miễn phí • Mã nguồn mở • Chạy trực tiếp trên trình duyệt</p>
+      <p>Công cụ chỉ phân tích URL được nhập. Không bảo đảm website an toàn và không bỏ qua CAPTCHA, đăng nhập, quảng cáo hoặc nhiệm vụ bắt buộc.</p>
+    </footer>
+  </main>
+  <script src="analyzer.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
